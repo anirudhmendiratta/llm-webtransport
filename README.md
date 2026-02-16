@@ -22,7 +22,7 @@ This creates `certs/cert.pem` and `certs/key.pem` — a P-256 ECDSA certificate 
 
 ### `server/`
 
-WebTransport server over HTTP/3 (QUIC). Listens on `:4433` and upgrades incoming requests at `/wt` to WebTransport sessions. Each client stream receives a prompt, forwards it to Ollama, and streams back tokens using a length-prefixed binary protocol (`<length>:<token>`).
+WebTransport server over HTTP/3 (QUIC). Listens on `:4433` and upgrades incoming requests at `/wt` to WebTransport sessions. Each client stream receives a prompt, forwards it to Ollama, and streams back tokens using a length-prefixed string protocol (`<length>:<token>`).
 
 ### `httpserver/`
 
