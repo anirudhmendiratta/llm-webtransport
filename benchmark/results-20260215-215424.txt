@@ -1,0 +1,315 @@
+===== Profile: baseline =====
+TLS proxy to Ollama listening on 127.0.0.1:11435
+
+=== Raw API ===
+  [1/10] What is the capital of France?... 18 tokens, TTFT 309ms, avg TBT 34ms, 916ms total, 4348 bytes, 241.6 B/tok
+  [2/10] Explain the difference between a stack a... 891 tokens, TTFT 261ms, avg TBT 35ms, 31.129s total, 203111 bytes, 228.0 B/tok
+  [3/10] Write a haiku about programming.... 20 tokens, TTFT 278ms, avg TBT 34ms, 956ms total, 4785 bytes, 239.2 B/tok
+  [4/10] What are the first 10 prime numbers?... 66 tokens, TTFT 273ms, avg TBT 34ms, 2.509s total, 15133 bytes, 229.3 B/tok
+  [5/10] Explain how a hash table works in simple... 1033 tokens, TTFT 259ms, avg TBT 35ms, 36.208s total, 235808 bytes, 228.3 B/tok
+  [6/10] Write a short Go function that reverses ... 524 tokens, TTFT 266ms, avg TBT 34ms, 18.303s total, 119693 bytes, 228.4 B/tok
+  [7/10] What causes a rainbow to appear?... 892 tokens, TTFT 277ms, avg TBT 35ms, 31.189s total, 204057 bytes, 228.8 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 74 tokens, TTFT 265ms, avg TBT 34ms, 2.766s total, 17231 bytes, 232.9 B/tok
+  [9/10] What is the time complexity of binary se... 973 tokens, TTFT 274ms, avg TBT 35ms, 34.176s total, 221921 bytes, 228.1 B/tok
+  [10/10] Describe the observer design pattern bri... 433 tokens, TTFT 286ms, avg TBT 34ms, 15.147s total, 99261 bytes, 229.2 B/tok
+
+=== HTTP SSE ===
+  [1/10] What is the capital of France?... 18 tokens, TTFT 271ms, avg TBT 34ms, 880ms total, 230 bytes, 12.8 B/tok
+  [2/10] Explain the difference between a stack a... 1035 tokens, TTFT 273ms, avg TBT 35ms, 36.34s total, 11992 bytes, 11.6 B/tok
+  [3/10] Write a haiku about programming.... 19 tokens, TTFT 265ms, avg TBT 34ms, 907ms total, 242 bytes, 12.7 B/tok
+  [4/10] What are the first 10 prime numbers?... 66 tokens, TTFT 263ms, avg TBT 34ms, 2.495s total, 640 bytes, 9.7 B/tok
+  [5/10] Explain how a hash table works in simple... 1018 tokens, TTFT 262ms, avg TBT 35ms, 35.677s total, 12122 bytes, 11.9 B/tok
+  [6/10] Write a short Go function that reverses ... 657 tokens, TTFT 282ms, avg TBT 35ms, 22.949s total, 7853 bytes, 12.0 B/tok
+  [7/10] What causes a rainbow to appear?... 937 tokens, TTFT 264ms, avg TBT 35ms, 32.776s total, 11654 bytes, 12.4 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 90 tokens, TTFT 262ms, avg TBT 34ms, 3.302s total, 1254 bytes, 13.9 B/tok
+  [9/10] What is the time complexity of binary se... 942 tokens, TTFT 259ms, avg TBT 35ms, 32.942s total, 11047 bytes, 11.7 B/tok
+  [10/10] Describe the observer design pattern bri... 397 tokens, TTFT 273ms, avg TBT 34ms, 13.824s total, 4986 bytes, 12.6 B/tok
+
+=== WebTransport ===
+  [1/10] What is the capital of France?... 19 tokens, TTFT 259ms, avg TBT 34ms, 868ms total, 110 bytes, 5.8 B/tok
+  [2/10] Explain the difference between a stack a... 1057 tokens, TTFT 269ms, avg TBT 35ms, 37.048s total, 6346 bytes, 6.0 B/tok
+  [3/10] Write a haiku about programming.... 19 tokens, TTFT 273ms, avg TBT 34ms, 881ms total, 116 bytes, 6.1 B/tok
+  [4/10] What are the first 10 prime numbers?... 67 tokens, TTFT 264ms, avg TBT 34ms, 2.498s total, 232 bytes, 3.5 B/tok
+  [5/10] Explain how a hash table works in simple... 1140 tokens, TTFT 263ms, avg TBT 35ms, 40.05s total, 6878 bytes, 6.0 B/tok
+  [6/10] Write a short Go function that reverses ... 619 tokens, TTFT 286ms, avg TBT 35ms, 21.611s total, 3468 bytes, 5.6 B/tok
+  [7/10] What causes a rainbow to appear?... 612 tokens, TTFT 273ms, avg TBT 34ms, 21.279s total, 3996 bytes, 6.5 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 90 tokens, TTFT 284ms, avg TBT 34ms, 3.296s total, 706 bytes, 7.8 B/tok
+  [9/10] What is the time complexity of binary se... 866 tokens, TTFT 270ms, avg TBT 35ms, 30.222s total, 5196 bytes, 6.0 B/tok
+  [10/10] Describe the observer design pattern bri... 432 tokens, TTFT 291ms, avg TBT 34ms, 15.024s total, 2884 bytes, 6.7 B/tok
+
+Approach        |  Avg Bytes |  P50 Bytes |  P90 Bytes |  Max Bytes |   Avg TTFT |    Avg TBT |  Avg Total | Avg Tokens |  Avg B/tok
+--------------------------------------------------------------------------------------------------------------------------------
+Raw API         |     112534 |      99261 |     221921 |     235808 |      275ms |       35ms |     17.33s |        492 |      228.5
+HTTP SSE        |       6202 |       4986 |      11992 |      12122 |      267ms |       35ms |    18.209s |        517 |       12.0
+WebTransport    |       2993 |       2884 |       6346 |       6878 |      273ms |       35ms |    17.278s |        492 |        6.1
+
+===== Profile: latency-50ms =====  (dnctl: delay 50)
+TLS proxy to Ollama listening on 127.0.0.1:11435
+
+=== Raw API ===
+  [1/10] What is the capital of France?... 9 tokens, TTFT 469ms, avg TBT 34ms, 772ms total, 2283 bytes, 253.7 B/tok
+  [2/10] Explain the difference between a stack a... 921 tokens, TTFT 465ms, avg TBT 35ms, 32.404s total, 209520 bytes, 227.5 B/tok
+  [3/10] Write a haiku about programming.... 19 tokens, TTFT 460ms, avg TBT 34ms, 1.101s total, 4573 bytes, 240.7 B/tok
+  [4/10] What are the first 10 prime numbers?... 89 tokens, TTFT 459ms, avg TBT 34ms, 3.468s total, 20378 bytes, 229.0 B/tok
+  [5/10] Explain how a hash table works in simple... 1164 tokens, TTFT 458ms, avg TBT 35ms, 41.145s total, 265559 bytes, 228.1 B/tok
+  [6/10] Write a short Go function that reverses ... 566 tokens, TTFT 465ms, avg TBT 34ms, 19.963s total, 129203 bytes, 228.3 B/tok
+  [7/10] What causes a rainbow to appear?... 624 tokens, TTFT 466ms, avg TBT 34ms, 21.959s total, 142730 bytes, 228.7 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 81 tokens, TTFT 475ms, avg TBT 34ms, 3.224s total, 18854 bytes, 232.8 B/tok
+  [9/10] What is the time complexity of binary se... 769 tokens, TTFT 460ms, avg TBT 35ms, 27.014s total, 175564 bytes, 228.3 B/tok
+  [10/10] Describe the observer design pattern bri... 447 tokens, TTFT 453ms, avg TBT 34ms, 15.735s total, 102347 bytes, 229.0 B/tok
+
+=== HTTP SSE ===
+  [1/10] What is the capital of France?... 30 tokens, TTFT 467ms, avg TBT 34ms, 1.48s total, 382 bytes, 12.7 B/tok
+  [2/10] Explain the difference between a stack a... 1043 tokens, TTFT 463ms, avg TBT 35ms, 36.758s total, 12308 bytes, 11.8 B/tok
+  [3/10] Write a haiku about programming.... 20 tokens, TTFT 465ms, avg TBT 34ms, 1.142s total, 257 bytes, 12.8 B/tok
+  [4/10] What are the first 10 prime numbers?... 67 tokens, TTFT 451ms, avg TBT 34ms, 2.72s total, 640 bytes, 9.6 B/tok
+  [5/10] Explain how a hash table works in simple... 1141 tokens, TTFT 456ms, avg TBT 35ms, 40.27s total, 13657 bytes, 12.0 B/tok
+  [6/10] Write a short Go function that reverses ... 864 tokens, TTFT 467ms, avg TBT 35ms, 30.43s total, 10141 bytes, 11.7 B/tok
+  [7/10] What causes a rainbow to appear?... 492 tokens, TTFT 466ms, avg TBT 34ms, 17.308s total, 6031 bytes, 12.3 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 95 tokens, TTFT 464ms, avg TBT 34ms, 3.677s total, 1313 bytes, 13.8 B/tok
+  [9/10] What is the time complexity of binary se... 1050 tokens, TTFT 462ms, avg TBT 35ms, 37.012s total, 12269 bytes, 11.7 B/tok
+  [10/10] Describe the observer design pattern bri... 487 tokens, TTFT 466ms, avg TBT 34ms, 17.213s total, 6082 bytes, 12.5 B/tok
+
+=== WebTransport ===
+  [1/10] What is the capital of France?... 19 tokens, TTFT 487ms, avg TBT 34ms, 1.095s total, 110 bytes, 5.8 B/tok
+  [2/10] Explain the difference between a stack a... 996 tokens, TTFT 465ms, avg TBT 35ms, 35.064s total, 5867 bytes, 5.9 B/tok
+  [3/10] Write a haiku about programming.... 20 tokens, TTFT 466ms, avg TBT 34ms, 1.108s total, 119 bytes, 6.0 B/tok
+  [4/10] What are the first 10 prime numbers?... 67 tokens, TTFT 459ms, avg TBT 34ms, 2.688s total, 232 bytes, 3.5 B/tok
+  [5/10] Explain how a hash table works in simple... 1150 tokens, TTFT 463ms, avg TBT 35ms, 40.686s total, 6760 bytes, 5.9 B/tok
+  [6/10] Write a short Go function that reverses ... 613 tokens, TTFT 470ms, avg TBT 34ms, 21.548s total, 3552 bytes, 5.8 B/tok
+  [7/10] What causes a rainbow to appear?... 700 tokens, TTFT 469ms, avg TBT 34ms, 24.547s total, 4542 bytes, 6.5 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 74 tokens, TTFT 464ms, avg TBT 34ms, 2.931s total, 577 bytes, 7.8 B/tok
+  [9/10] What is the time complexity of binary se... 674 tokens, TTFT 460ms, avg TBT 34ms, 23.625s total, 4115 bytes, 6.1 B/tok
+  [10/10] Describe the observer design pattern bri... 434 tokens, TTFT 467ms, avg TBT 34ms, 15.258s total, 2774 bytes, 6.4 B/tok
+
+Approach        |  Avg Bytes |  P50 Bytes |  P90 Bytes |  Max Bytes |   Avg TTFT |    Avg TBT |  Avg Total | Avg Tokens |  Avg B/tok
+--------------------------------------------------------------------------------------------------------------------------------
+Raw API         |     107101 |     102347 |     209520 |     265559 |      463ms |       35ms |    16.678s |        468 |      228.4
+HTTP SSE        |       6308 |       6031 |      12308 |      13657 |      463ms |       35ms |    18.801s |        528 |       11.9
+WebTransport    |       2864 |       2774 |       5867 |       6760 |      467ms |       35ms |    16.855s |        474 |        6.0
+
+===== Profile: latency-200ms =====  (dnctl: delay 200)
+TLS proxy to Ollama listening on 127.0.0.1:11435
+
+=== Raw API ===
+  [1/10] What is the capital of France?... 18 tokens, TTFT 923ms, avg TBT 34ms, 1.528s total, 4348 bytes, 241.6 B/tok
+  [2/10] Explain the difference between a stack a... 1105 tokens, TTFT 913ms, avg TBT 35ms, 39.433s total, 251983 bytes, 228.0 B/tok
+  [3/10] Write a haiku about programming.... 22 tokens, TTFT 926ms, avg TBT 34ms, 1.671s total, 5226 bytes, 237.5 B/tok
+  [4/10] What are the first 10 prime numbers?... 66 tokens, TTFT 911ms, avg TBT 34ms, 3.144s total, 15133 bytes, 229.3 B/tok
+  [5/10] Explain how a hash table works in simple... 1117 tokens, TTFT 920ms, avg TBT 35ms, 39.902s total, 254834 bytes, 228.1 B/tok
+  [6/10] Write a short Go function that reverses ... 562 tokens, TTFT 926ms, avg TBT 34ms, 20.25s total, 128301 bytes, 228.3 B/tok
+  [7/10] What causes a rainbow to appear?... 750 tokens, TTFT 914ms, avg TBT 35ms, 26.819s total, 171421 bytes, 228.6 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 74 tokens, TTFT 929ms, avg TBT 34ms, 3.436s total, 17157 bytes, 231.9 B/tok
+  [9/10] What is the time complexity of binary se... 882 tokens, TTFT 909ms, avg TBT 35ms, 31.508s total, 201149 bytes, 228.1 B/tok
+  [10/10] Describe the observer design pattern bri... 379 tokens, TTFT 924ms, avg TBT 34ms, 13.862s total, 86859 bytes, 229.2 B/tok
+
+=== HTTP SSE ===
+  [1/10] What is the capital of France?... 20 tokens, TTFT 922ms, avg TBT 34ms, 1.602s total, 256 bytes, 12.8 B/tok
+  [2/10] Explain the difference between a stack a... 977 tokens, TTFT 915ms, avg TBT 35ms, 34.875s total, 11845 bytes, 12.1 B/tok
+  [3/10] Write a haiku about programming.... 20 tokens, TTFT 922ms, avg TBT 34ms, 1.603s total, 256 bytes, 12.8 B/tok
+  [4/10] What are the first 10 prime numbers?... 67 tokens, TTFT 915ms, avg TBT 34ms, 3.186s total, 640 bytes, 9.6 B/tok
+  [5/10] Explain how a hash table works in simple... 999 tokens, TTFT 914ms, avg TBT 35ms, 35.674s total, 11908 bytes, 11.9 B/tok
+  [6/10] Write a short Go function that reverses ... 622 tokens, TTFT 914ms, avg TBT 34ms, 22.33s total, 7544 bytes, 12.1 B/tok
+  [7/10] What causes a rainbow to appear?... 587 tokens, TTFT 913ms, avg TBT 34ms, 21.086s total, 7217 bytes, 12.3 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 90 tokens, TTFT 918ms, avg TBT 34ms, 3.98s total, 1276 bytes, 14.2 B/tok
+  [9/10] What is the time complexity of binary se... 815 tokens, TTFT 914ms, avg TBT 35ms, 29.108s total, 9885 bytes, 12.1 B/tok
+  [10/10] Describe the observer design pattern bri... 398 tokens, TTFT 911ms, avg TBT 34ms, 14.511s total, 4926 bytes, 12.4 B/tok
+
+=== WebTransport ===
+  [1/10] What is the capital of France?... 10 tokens, TTFT 918ms, avg TBT 34ms, 1.225s total, 59 bytes, 5.9 B/tok
+  [2/10] Explain the difference between a stack a... 1058 tokens, TTFT 910ms, avg TBT 35ms, 37.755s total, 6036 bytes, 5.7 B/tok
+  [3/10] Write a haiku about programming.... 19 tokens, TTFT 923ms, avg TBT 34ms, 1.531s total, 108 bytes, 5.7 B/tok
+  [4/10] What are the first 10 prime numbers?... 67 tokens, TTFT 910ms, avg TBT 34ms, 3.139s total, 232 bytes, 3.5 B/tok
+  [5/10] Explain how a hash table works in simple... 987 tokens, TTFT 905ms, avg TBT 35ms, 35.173s total, 5905 bytes, 6.0 B/tok
+  [6/10] Write a short Go function that reverses ... 549 tokens, TTFT 913ms, avg TBT 34ms, 19.778s total, 3176 bytes, 5.8 B/tok
+  [7/10] What causes a rainbow to appear?... 630 tokens, TTFT 915ms, avg TBT 34ms, 22.525s total, 4048 bytes, 6.4 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 92 tokens, TTFT 915ms, avg TBT 34ms, 3.996s total, 744 bytes, 8.1 B/tok
+  [9/10] What is the time complexity of binary se... 892 tokens, TTFT 921ms, avg TBT 35ms, 31.845s total, 5369 bytes, 6.0 B/tok
+  [10/10] Describe the observer design pattern bri... 450 tokens, TTFT 920ms, avg TBT 34ms, 16.269s total, 2922 bytes, 6.5 B/tok
+
+Approach        |  Avg Bytes |  P50 Bytes |  P90 Bytes |  Max Bytes |   Avg TTFT |    Avg TBT |  Avg Total | Avg Tokens |  Avg B/tok
+--------------------------------------------------------------------------------------------------------------------------------
+Raw API         |     113641 |      86859 |     251983 |     254834 |      919ms |       35ms |    18.155s |        497 |      228.4
+HTTP SSE        |       5575 |       4926 |      11845 |      11908 |      916ms |       35ms |    16.795s |        459 |       12.1
+WebTransport    |       2859 |       2922 |       5905 |       6036 |      915ms |       35ms |    17.324s |        475 |        6.0
+
+===== Profile: loss-1pct =====  (dnctl: plr 0.01)
+TLS proxy to Ollama listening on 127.0.0.1:11435
+
+=== Raw API ===
+  [1/10] What is the capital of France?... 18 tokens, TTFT 344ms, avg TBT 34ms, 958ms total, 4329 bytes, 240.5 B/tok
+  [2/10] Explain the difference between a stack a... 925 tokens, TTFT 269ms, avg TBT 35ms, 32.524s total, 211338 bytes, 228.5 B/tok
+  [3/10] Write a haiku about programming.... 20 tokens, TTFT 282ms, avg TBT 34ms, 959ms total, 4797 bytes, 239.8 B/tok
+  [4/10] What are the first 10 prime numbers?... 108 tokens, TTFT 271ms, avg TBT 34ms, 3.927s total, 24674 bytes, 228.5 B/tok
+  [5/10] Explain how a hash table works in simple... 1021 tokens, TTFT 270ms, avg TBT 35ms, 35.911s total, 233162 bytes, 228.4 B/tok
+  [6/10] Write a short Go function that reverses ... 540 tokens, TTFT 267ms, avg TBT 34ms, 18.886s total, 123457 bytes, 228.6 B/tok
+  [7/10] What causes a rainbow to appear?... 571 tokens, TTFT 274ms, avg TBT 34ms, 19.896s total, 130710 bytes, 228.9 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 81 tokens, TTFT 270ms, avg TBT 34ms, 3.017s total, 18830 bytes, 232.5 B/tok
+  [9/10] What is the time complexity of binary se... 1077 tokens, TTFT 265ms, avg TBT 35ms, 37.858s total, 245404 bytes, 227.9 B/tok
+  [10/10] Describe the observer design pattern bri... 469 tokens, TTFT 272ms, avg TBT 34ms, 16.35s total, 107511 bytes, 229.2 B/tok
+
+=== HTTP SSE ===
+  [1/10] What is the capital of France?... 20 tokens, TTFT 266ms, avg TBT 34ms, 942ms total, 256 bytes, 12.8 B/tok
+  [2/10] Explain the difference between a stack a... 999 tokens, TTFT 268ms, avg TBT 35ms, 34.99s total, 11719 bytes, 11.7 B/tok
+  [3/10] Write a haiku about programming.... 18 tokens, TTFT 271ms, avg TBT 34ms, 880ms total, 235 bytes, 13.1 B/tok
+  [4/10] What are the first 10 prime numbers?... 93 tokens, TTFT 267ms, avg TBT 34ms, 3.407s total, 968 bytes, 10.4 B/tok
+  [5/10] Explain how a hash table works in simple... 1184 tokens, TTFT 259ms, avg TBT 35ms, 41.612s total, 14089 bytes, 11.9 B/tok
+  [6/10] Write a short Go function that reverses ... 505 tokens, TTFT 265ms, avg TBT 34ms, 17.608s total, 5994 bytes, 11.9 B/tok
+  [7/10] What causes a rainbow to appear?... 750 tokens, TTFT 268ms, avg TBT 35ms, 26.182s total, 9177 bytes, 12.2 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 81 tokens, TTFT 275ms, avg TBT 34ms, 3.019s total, 1121 bytes, 13.8 B/tok
+  [9/10] What is the time complexity of binary se... 837 tokens, TTFT 271ms, avg TBT 35ms, 29.343s total, 10092 bytes, 12.1 B/tok
+  [10/10] Describe the observer design pattern bri... 425 tokens, TTFT 319ms, avg TBT 34ms, 14.852s total, 5337 bytes, 12.6 B/tok
+
+=== WebTransport ===
+  [1/10] What is the capital of France?... 19 tokens, TTFT 262ms, avg TBT 34ms, 870ms total, 110 bytes, 5.8 B/tok
+  [2/10] Explain the difference between a stack a... 989 tokens, TTFT 266ms, avg TBT 35ms, 34.672s total, 5604 bytes, 5.7 B/tok
+  [3/10] Write a haiku about programming.... 20 tokens, TTFT 266ms, avg TBT 34ms, 915ms total, 120 bytes, 6.0 B/tok
+  [4/10] What are the first 10 prime numbers?... 67 tokens, TTFT 262ms, avg TBT 34ms, 2.52s total, 232 bytes, 3.5 B/tok
+  [5/10] Explain how a hash table works in simple... 1092 tokens, TTFT 263ms, avg TBT 35ms, 38.353s total, 6431 bytes, 5.9 B/tok
+  [6/10] Write a short Go function that reverses ... 485 tokens, TTFT 275ms, avg TBT 34ms, 16.89s total, 2773 bytes, 5.7 B/tok
+  [7/10] What causes a rainbow to appear?... 560 tokens, TTFT 261ms, avg TBT 34ms, 19.487s total, 3600 bytes, 6.4 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 87 tokens, TTFT 276ms, avg TBT 34ms, 3.193s total, 697 bytes, 8.0 B/tok
+  [9/10] What is the time complexity of binary se... 949 tokens, TTFT 270ms, avg TBT 35ms, 33.233s total, 5605 bytes, 5.9 B/tok
+  [10/10] Describe the observer design pattern bri... 376 tokens, TTFT 277ms, avg TBT 34ms, 13.075s total, 2553 bytes, 6.8 B/tok
+
+Approach        |  Avg Bytes |  P50 Bytes |  P90 Bytes |  Max Bytes |   Avg TTFT |    Avg TBT |  Avg Total | Avg Tokens |  Avg B/tok
+--------------------------------------------------------------------------------------------------------------------------------
+Raw API         |     110421 |     107511 |     233162 |     245404 |      278ms |       35ms |    17.029s |        483 |      228.6
+HTTP SSE        |       5898 |       5337 |      11719 |      14089 |      273ms |       35ms |    17.283s |        491 |       12.0
+WebTransport    |       2772 |       2553 |       5605 |       6431 |      268ms |       35ms |    16.321s |        464 |        6.0
+
+===== Profile: loss-5pct =====  (dnctl: plr 0.05)
+TLS proxy to Ollama listening on 127.0.0.1:11435
+
+=== Raw API ===
+  [1/10] What is the capital of France?... 18 tokens, TTFT 428ms, avg TBT 34ms, 1.045s total, 4329 bytes, 240.5 B/tok
+  [2/10] Explain the difference between a stack a... 824 tokens, TTFT 275ms, avg TBT 35ms, 28.85s total, 188130 bytes, 228.3 B/tok
+  [3/10] Write a haiku about programming.... 26 tokens, TTFT 262ms, avg TBT 34ms, 1.147s total, 6151 bytes, 236.6 B/tok
+  [4/10] What are the first 10 prime numbers?... 66 tokens, TTFT 261ms, avg TBT 34ms, 2.512s total, 15133 bytes, 229.3 B/tok
+  [5/10] Explain how a hash table works in simple... 1135 tokens, TTFT 298ms, avg TBT 35ms, 40.01s total, 258859 bytes, 228.1 B/tok
+  [6/10] Write a short Go function that reverses ... 590 tokens, TTFT 263ms, avg TBT 34ms, 20.591s total, 134749 bytes, 228.4 B/tok
+  [7/10] What causes a rainbow to appear?... 1007 tokens, TTFT 267ms, avg TBT 35ms, 35.268s total, 230142 bytes, 228.5 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 86 tokens, TTFT 265ms, avg TBT 34ms, 3.175s total, 20008 bytes, 232.7 B/tok
+  [9/10] What is the time complexity of binary se... 917 tokens, TTFT 262ms, avg TBT 35ms, 32.065s total, 209390 bytes, 228.3 B/tok
+  [10/10] Describe the observer design pattern bri... 450 tokens, TTFT 263ms, avg TBT 34ms, 15.646s total, 103149 bytes, 229.2 B/tok
+
+=== HTTP SSE ===
+  [1/10] What is the capital of France?... 18 tokens, TTFT 268ms, avg TBT 34ms, 876ms total, 230 bytes, 12.8 B/tok
+  [2/10] Explain the difference between a stack a... 997 tokens, TTFT 267ms, avg TBT 35ms, 34.911s total, 11610 bytes, 11.6 B/tok
+  [3/10] Write a haiku about programming.... 18 tokens, TTFT 276ms, avg TBT 34ms, 884ms total, 237 bytes, 13.2 B/tok
+  [4/10] What are the first 10 prime numbers?... 89 tokens, TTFT 271ms, avg TBT 34ms, 3.277s total, 915 bytes, 10.3 B/tok
+  [5/10] Explain how a hash table works in simple... 1202 tokens, TTFT 403ms, avg TBT 35ms, 42.393s total, 14359 bytes, 11.9 B/tok
+  [6/10] Write a short Go function that reverses ... 545 tokens, TTFT 277ms, avg TBT 34ms, 19.013s total, 6499 bytes, 11.9 B/tok
+  [7/10] What causes a rainbow to appear?... 608 tokens, TTFT 268ms, avg TBT 34ms, 21.199s total, 7527 bytes, 12.4 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 82 tokens, TTFT 425ms, avg TBT 34ms, 3.196s total, 1169 bytes, 14.3 B/tok
+  [9/10] What is the time complexity of binary se... 649 tokens, TTFT 263ms, avg TBT 34ms, 22.602s total, 8014 bytes, 12.3 B/tok
+  [10/10] Describe the observer design pattern bri... 403 tokens, TTFT 278ms, avg TBT 34ms, 14.026s total, 5053 bytes, 12.5 B/tok
+
+=== WebTransport ===
+  [1/10] What is the capital of France?... 19 tokens, TTFT 285ms, avg TBT 34ms, 892ms total, 110 bytes, 5.8 B/tok
+  [2/10] Explain the difference between a stack a... 1019 tokens, TTFT 268ms, avg TBT 35ms, 35.683s total, 6082 bytes, 6.0 B/tok
+  [3/10] Write a haiku about programming.... 20 tokens, TTFT 265ms, avg TBT 34ms, 909ms total, 116 bytes, 5.8 B/tok
+  [4/10] What are the first 10 prime numbers?... 68 tokens, TTFT 267ms, avg TBT 34ms, 2.529s total, 235 bytes, 3.5 B/tok
+  [5/10] Explain how a hash table works in simple... 1074 tokens, TTFT 267ms, avg TBT 35ms, 37.649s total, 6300 bytes, 5.9 B/tok
+  [6/10] Write a short Go function that reverses ... 532 tokens, TTFT 295ms, avg TBT 34ms, 18.533s total, 3084 bytes, 5.8 B/tok
+  [7/10] What causes a rainbow to appear?... 621 tokens, TTFT 281ms, avg TBT 34ms, 21.61s total, 3964 bytes, 6.4 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 78 tokens, TTFT 280ms, avg TBT 34ms, 2.882s total, 612 bytes, 7.8 B/tok
+  [9/10] What is the time complexity of binary se... 814 tokens, TTFT 272ms, avg TBT 35ms, 28.375s total, 4782 bytes, 5.9 B/tok
+  [10/10] Describe the observer design pattern bri... 459 tokens, TTFT 274ms, avg TBT 34ms, 15.94s total, 3021 bytes, 6.6 B/tok
+
+Approach        |  Avg Bytes |  P50 Bytes |  P90 Bytes |  Max Bytes |   Avg TTFT |    Avg TBT |  Avg Total | Avg Tokens |  Avg B/tok
+--------------------------------------------------------------------------------------------------------------------------------
+Raw API         |     117004 |     103149 |     230142 |     258859 |      285ms |       35ms |    18.031s |        511 |      228.6
+HTTP SSE        |       5561 |       5053 |      11610 |      14359 |      300ms |       35ms |    16.238s |        461 |       12.1
+WebTransport    |       2830 |       3021 |       6082 |       6300 |      276ms |       35ms |      16.5s |        470 |        6.0
+
+===== Profile: bw-1mbit =====  (dnctl: bw 1Mbit/s)
+TLS proxy to Ollama listening on 127.0.0.1:11435
+
+=== Raw API ===
+  [1/10] What is the capital of France?... 18 tokens, TTFT 356ms, avg TBT 35ms, 982ms total, 4348 bytes, 241.6 B/tok
+  [2/10] Explain the difference between a stack a... 1056 tokens, TTFT 274ms, avg TBT 35ms, 36.975s total, 241025 bytes, 228.2 B/tok
+  [3/10] Write a haiku about programming.... 19 tokens, TTFT 289ms, avg TBT 34ms, 934ms total, 4573 bytes, 240.7 B/tok
+  [4/10] What are the first 10 prime numbers?... 89 tokens, TTFT 284ms, avg TBT 34ms, 3.297s total, 20378 bytes, 229.0 B/tok
+  [5/10] Explain how a hash table works in simple... 1169 tokens, TTFT 279ms, avg TBT 35ms, 41.159s total, 266305 bytes, 227.8 B/tok
+  [6/10] Write a short Go function that reverses ... 454 tokens, TTFT 292ms, avg TBT 34ms, 15.874s total, 103721 bytes, 228.5 B/tok
+  [7/10] What causes a rainbow to appear?... 562 tokens, TTFT 290ms, avg TBT 34ms, 19.595s total, 128593 bytes, 228.8 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 84 tokens, TTFT 288ms, avg TBT 34ms, 3.129s total, 19550 bytes, 232.7 B/tok
+  [9/10] What is the time complexity of binary se... 806 tokens, TTFT 286ms, avg TBT 35ms, 28.161s total, 183872 bytes, 228.1 B/tok
+  [10/10] Describe the observer design pattern bri... 466 tokens, TTFT 290ms, avg TBT 34ms, 16.236s total, 106751 bytes, 229.1 B/tok
+
+=== HTTP SSE ===
+  [1/10] What is the capital of France?... 18 tokens, TTFT 284ms, avg TBT 34ms, 893ms total, 230 bytes, 12.8 B/tok
+  [2/10] Explain the difference between a stack a... 1065 tokens, TTFT 289ms, avg TBT 35ms, 37.443s total, 12564 bytes, 11.8 B/tok
+  [3/10] Write a haiku about programming.... 20 tokens, TTFT 294ms, avg TBT 34ms, 970ms total, 258 bytes, 12.9 B/tok
+  [4/10] What are the first 10 prime numbers?... 66 tokens, TTFT 292ms, avg TBT 34ms, 2.525s total, 640 bytes, 9.7 B/tok
+  [5/10] Explain how a hash table works in simple... 1058 tokens, TTFT 285ms, avg TBT 35ms, 37.195s total, 12330 bytes, 11.7 B/tok
+  [6/10] Write a short Go function that reverses ... 650 tokens, TTFT 326ms, avg TBT 35ms, 22.815s total, 7490 bytes, 11.5 B/tok
+  [7/10] What causes a rainbow to appear?... 606 tokens, TTFT 287ms, avg TBT 34ms, 21.127s total, 7703 bytes, 12.7 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 85 tokens, TTFT 291ms, avg TBT 34ms, 3.162s total, 1186 bytes, 14.0 B/tok
+  [9/10] What is the time complexity of binary se... 1070 tokens, TTFT 291ms, avg TBT 35ms, 37.586s total, 12721 bytes, 11.9 B/tok
+  [10/10] Describe the observer design pattern bri... 451 tokens, TTFT 318ms, avg TBT 34ms, 15.747s total, 5648 bytes, 12.5 B/tok
+
+=== WebTransport ===
+  [1/10] What is the capital of France?... 19 tokens, TTFT 306ms, avg TBT 34ms, 920ms total, 110 bytes, 5.8 B/tok
+  [2/10] Explain the difference between a stack a... 1024 tokens, TTFT 308ms, avg TBT 35ms, 35.972s total, 5634 bytes, 5.5 B/tok
+  [3/10] Write a haiku about programming.... 21 tokens, TTFT 310ms, avg TBT 34ms, 988ms total, 126 bytes, 6.0 B/tok
+  [4/10] What are the first 10 prime numbers?... 109 tokens, TTFT 301ms, avg TBT 34ms, 3.952s total, 447 bytes, 4.1 B/tok
+  [5/10] Explain how a hash table works in simple... 1475 tokens, TTFT 299ms, avg TBT 35ms, 52.119s total, 8452 bytes, 5.7 B/tok
+  [6/10] Write a short Go function that reverses ... 538 tokens, TTFT 311ms, avg TBT 34ms, 18.807s total, 3044 bytes, 5.7 B/tok
+  [7/10] What causes a rainbow to appear?... 843 tokens, TTFT 309ms, avg TBT 35ms, 29.443s total, 5372 bytes, 6.4 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 79 tokens, TTFT 309ms, avg TBT 34ms, 2.945s total, 616 bytes, 7.8 B/tok
+  [9/10] What is the time complexity of binary se... 722 tokens, TTFT 302ms, avg TBT 34ms, 25.172s total, 4341 bytes, 6.0 B/tok
+  [10/10] Describe the observer design pattern bri... 342 tokens, TTFT 306ms, avg TBT 34ms, 11.921s total, 2303 bytes, 6.7 B/tok
+
+Approach        |  Avg Bytes |  P50 Bytes |  P90 Bytes |  Max Bytes |   Avg TTFT |    Avg TBT |  Avg Total | Avg Tokens |  Avg B/tok
+--------------------------------------------------------------------------------------------------------------------------------
+Raw API         |     107911 |     103721 |     241025 |     266305 |      293ms |       35ms |    16.634s |        472 |      228.5
+HTTP SSE        |       6077 |       5648 |      12564 |      12721 |      296ms |       35ms |    17.946s |        508 |       11.9
+WebTransport    |       3044 |       2303 |       5634 |       8452 |      306ms |       35ms |    18.224s |        517 |        5.9
+
+===== Profile: degraded =====  (dnctl: delay 100 plr 0.02 bw 1Mbit/s)
+TLS proxy to Ollama listening on 127.0.0.1:11435
+
+=== Raw API ===
+  [1/10] What is the capital of France?... 33 tokens, TTFT 658ms, avg TBT 34ms, 1.769s total, 7712 bytes, 233.7 B/tok
+  [2/10] Explain the difference between a stack a... 1015 tokens, TTFT 634ms, avg TBT 35ms, 35.914s total, 231324 bytes, 227.9 B/tok
+  [3/10] Write a haiku about programming.... 21 tokens, TTFT 638ms, avg TBT 34ms, 1.349s total, 5027 bytes, 239.4 B/tok
+  [4/10] What are the first 10 prime numbers?... 66 tokens, TTFT 619ms, avg TBT 34ms, 2.849s total, 15066 bytes, 228.3 B/tok
+  [5/10] Explain how a hash table works in simple... 1064 tokens, TTFT 624ms, avg TBT 35ms, 37.685s total, 242985 bytes, 228.4 B/tok
+  [6/10] Write a short Go function that reverses ... 527 tokens, TTFT 638ms, avg TBT 34ms, 18.786s total, 119849 bytes, 227.4 B/tok
+  [7/10] What causes a rainbow to appear?... 841 tokens, TTFT 633ms, avg TBT 35ms, 29.721s total, 192198 bytes, 228.5 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 87 tokens, TTFT 636ms, avg TBT 34ms, 3.58s total, 20242 bytes, 232.7 B/tok
+  [9/10] What is the time complexity of binary se... 809 tokens, TTFT 633ms, avg TBT 35ms, 28.59s total, 184708 bytes, 228.3 B/tok
+  [10/10] Describe the observer design pattern bri... 335 tokens, TTFT 632ms, avg TBT 34ms, 12.039s total, 76830 bytes, 229.3 B/tok
+
+=== HTTP SSE ===
+  [1/10] What is the capital of France?... 18 tokens, TTFT 634ms, avg TBT 34ms, 1.242s total, 230 bytes, 12.8 B/tok
+  [2/10] Explain the difference between a stack a... 993 tokens, TTFT 635ms, avg TBT 35ms, 35.13s total, 11759 bytes, 11.8 B/tok
+  [3/10] Write a haiku about programming.... 19 tokens, TTFT 633ms, avg TBT 34ms, 1.275s total, 244 bytes, 12.8 B/tok
+  [4/10] What are the first 10 prime numbers?... 66 tokens, TTFT 633ms, avg TBT 34ms, 2.863s total, 640 bytes, 9.7 B/tok
+  [5/10] Explain how a hash table works in simple... 1110 tokens, TTFT 729ms, avg TBT 35ms, 39.409s total, 12992 bytes, 11.7 B/tok
+  [6/10] Write a short Go function that reverses ... 568 tokens, TTFT 938ms, avg TBT 34ms, 20.452s total, 6720 bytes, 11.8 B/tok
+  [7/10] What causes a rainbow to appear?... 590 tokens, TTFT 625ms, avg TBT 34ms, 20.879s total, 7270 bytes, 12.3 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 93 tokens, TTFT 630ms, avg TBT 34ms, 3.77s total, 1292 bytes, 13.9 B/tok
+  [9/10] What is the time complexity of binary se... 900 tokens, TTFT 635ms, avg TBT 35ms, 31.825s total, 10865 bytes, 12.1 B/tok
+  [10/10] Describe the observer design pattern bri... 463 tokens, TTFT 653ms, avg TBT 34ms, 16.5s total, 5790 bytes, 12.5 B/tok
+
+=== WebTransport ===
+  [1/10] What is the capital of France?... 19 tokens, TTFT 659ms, avg TBT 34ms, 1.269s total, 110 bytes, 5.8 B/tok
+  [2/10] Explain the difference between a stack a... 853 tokens, TTFT 648ms, avg TBT 35ms, 30.116s total, 5066 bytes, 5.9 B/tok
+  [3/10] Write a haiku about programming.... 21 tokens, TTFT 649ms, avg TBT 34ms, 1.325s total, 126 bytes, 6.0 B/tok
+  [4/10] What are the first 10 prime numbers?... 109 tokens, TTFT 649ms, avg TBT 34ms, 4.295s total, 447 bytes, 4.1 B/tok
+  [5/10] Explain how a hash table works in simple... 980 tokens, TTFT 896ms, avg TBT 35ms, 34.87s total, 5924 bytes, 6.0 B/tok
+  [6/10] Write a short Go function that reverses ... 780 tokens, TTFT 650ms, avg TBT 35ms, 27.61s total, 4645 bytes, 6.0 B/tok
+  [7/10] What causes a rainbow to appear?... 647 tokens, TTFT 765ms, avg TBT 34ms, 22.972s total, 4034 bytes, 6.2 B/tok
+  [8/10] Compare TCP and UDP in three sentences.... 93 tokens, TTFT 650ms, avg TBT 34ms, 3.763s total, 743 bytes, 8.0 B/tok
+  [9/10] What is the time complexity of binary se... 856 tokens, TTFT 656ms, avg TBT 35ms, 30.277s total, 5172 bytes, 6.0 B/tok
+  [10/10] Describe the observer design pattern bri... 470 tokens, TTFT 660ms, avg TBT 34ms, 16.712s total, 3079 bytes, 6.6 B/tok
+
+Approach        |  Avg Bytes |  P50 Bytes |  P90 Bytes |  Max Bytes |   Avg TTFT |    Avg TBT |  Avg Total | Avg Tokens |  Avg B/tok
+--------------------------------------------------------------------------------------------------------------------------------
+Raw API         |     109594 |      76830 |     231324 |     242985 |      634ms |       35ms |    17.228s |        479 |      228.4
+HTTP SSE        |       5780 |       5790 |      11759 |      12992 |      675ms |       35ms |    17.335s |        482 |       12.0
+WebTransport    |       2934 |       3079 |       5172 |       5924 |      688ms |       35ms |    17.321s |        482 |        6.1
+
