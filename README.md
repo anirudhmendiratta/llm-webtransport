@@ -1,6 +1,6 @@
 # llm-webtransport
 
-Benchmark comparing WebTransport (QUIC) vs HTTP SSE for streaming LLM token delivery. WebTransport uses lightweight length-prefixed binary framing over QUIC streams, while HTTP SSE carries the standard `data: <token>\n\n` text format over TCP+TLS. The goal is to measure per-token overhead, TTFT, and total bytes on the wire under various network conditions.
+Benchmark comparing WebTransport (QUIC) vs HTTP SSE for streaming LLM token delivery. WebTransport uses lightweight length-prefixed text framing over QUIC streams, while HTTP SSE carries the standard `data: <token>\n\n` text format over TCP+TLS. The goal is to measure per-token overhead, TTFT, and total bytes on the wire under various network conditions.
 
 ## Prerequisites
 
