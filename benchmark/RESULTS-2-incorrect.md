@@ -1,4 +1,4 @@
-# Benchmark Results: Connection Reuse Mode
+# Benchmark Results: Connection Reuse Mode (Incorrect results where HTTP was not reusing connection properly)
 
 **Date:** 2026-02-16
 **Model:** gemma3:12b (via Ollama)

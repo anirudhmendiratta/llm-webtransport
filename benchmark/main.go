@@ -190,6 +190,9 @@ func (r *rawAPIRunner) Run(prompt string) (Result, error) {
 		lastToken = now
 		res.TokenCount++
 	}
+	// Drain remaining response body so the HTTP transport sees EOF
+	// and returns the connection to the keep-alive pool.
+	io.Copy(io.Discard, resp.Body)
 	res.BytesReceived = cr.Count
 	res.TotalTime = time.Since(start)
 	return res, scanner.Err()
@@ -252,6 +255,9 @@ func (r *httpSSERunner) Run(prompt string) (Result, error) {
 		lastToken = now
 		res.TokenCount++
 	}
+	// Drain remaining response body so the HTTP transport sees EOF
+	// and returns the connection to the keep-alive pool.
+	io.Copy(io.Discard, resp.Body)
 	res.BytesReceived = cr.Count
 	res.TotalTime = time.Since(start)
 	return res, scanner.Err()
